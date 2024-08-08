@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { forwardRef, type ElementRef, type ComponentPropsWithoutRef } from 'react'
 import Link from 'next/link'
 
 import { cn } from '@/lib/utils'
@@ -53,7 +53,7 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function PrimaryMenu () {
   return (
-    <NavigationMenu>
+    <NavigationMenu className='mx-[3.5%] my-7'>
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
@@ -117,9 +117,9 @@ export function PrimaryMenu () {
   )
 }
 
-const ListItem = React.forwardRef<
-  React.ElementRef<'a'>,
-  React.ComponentPropsWithoutRef<'a'>
+const ListItem = forwardRef<
+  ElementRef<'a'>,
+  ComponentPropsWithoutRef<'a'>
 >(({ className, title, children, ...props }, ref) => {
   return (
     <li>
